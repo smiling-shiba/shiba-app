@@ -41,6 +41,7 @@ Exact layout is open until the scaffold exists.
 - **Capabilities, not `if desktop`.** Storage, mods, local hosting and filesystem sit behind capability interfaces.
 - **Flags** never hold rules. Rule values live in the policy and its templates.
 - **Mods:** executable mods are allowed on desktop local mode only.
+- **Ladder rules are not ours to run.** In ladder mode the official server (`shiba-mps`) plays by its own private rules, which may differ from the default policy the app ships (D-42). The app only renders what the server says. Preview rules in ladder mode are a display convenience, not the truth.
 - **Custom games stay local.** Their rules are never sent to `shiba-mps`. The host's Colyseus server is authoritative for friends who join it. Shareable world files may come later (D-31).
 
 ## Open questions

@@ -8,7 +8,7 @@ New packages need approval (Phaser 4, Colyseus, Tauri and the rest of the stack 
 
 ## Now
 
-_Nothing in progress. Waiting on the pack loader design and the runner question (O-14)._
+_Nothing in progress. Waiting on the pack loader design. The runner lives in this repo and is not shared with the ladder server (D-42, decided 2026-09-21)._
 
 ## Next
 
