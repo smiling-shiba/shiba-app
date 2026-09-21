@@ -8,6 +8,8 @@ New packages need approval (Phaser 4, Colyseus, Tauri and the rest of the stack 
 
 ## Now
 
+_Nothing in progress. Waiting on the pack loader design and the runner question (O-14)._
+
 ## Next
 
 - [ ] `SA-0001` [SS-02] Scaffold the repo: Vite + React + TypeScript, Node 24, npm, Oxlint, Vitest. Match `shiba-tools`' setup.
