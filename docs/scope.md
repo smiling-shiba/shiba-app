@@ -12,14 +12,14 @@ Status: Draft. Decisions are tracked in `shiba-shared/docs/decisions/log.md` (D-
 
 ## What does not live here
 
-- Rules logic. Rules come from a policy in the pack the app loads; the runtime that runs it comes from `shiba-core` as a versioned package. This repo never re-implements a rule.
+- Rules logic. Rules come from a policy in the pack the app loads. This repo never re-implements a rule.
 - Official ladder, accounts, matchmaking, seasons, entitlements: `shiba-mps`.
 - Store, Steam/GOG adapters and premium content: a private commercial pack.
 - Mobile builds and Bluetooth. Later, and mobile is online-only.
 
 ## Pack folders
 
-The app ships with empty `policies/`, `templates/` and `assets/` folders and accepts a configurable pack directory, so a game's data can live in a separate repo (D-34). Load flow: verify the policy signature (or warn if unsigned in local mode), load the policy into the runtime, read its contract, validate the templates, run. Format: `shiba-core/docs/pack-format.md`.
+The app ships with empty `policies/`, `templates/` and `assets/` folders and accepts a configurable pack directory, so a game's data can live in a separate repo (D-34). Load flow: verify the policy signature (or warn if unsigned in local mode), load the policy into the runtime, read its contract, validate the templates, run. Format: `shiba-sdk/docs/pack-format.md`.
 
 ## Structure
 
@@ -35,7 +35,7 @@ Exact layout is open until the scaffold exists.
 
 ## Rules for this repo
 
-- **Server is authoritative.** The client sends intents (`ATTACK_LAND`, `PLAY_SPELL`) and renders results. The client may run the loaded policy through the `shiba-core` runtime for previews (legal-move highlighting, tooltips) but never for authority.
+- **Server is authoritative.** The client sends intents (`ATTACK_LAND`, `PLAY_SPELL`) and renders results. The client may run the loaded policy for previews (legal-move highlighting, tooltips) but never for authority.
 - **Transport boundary.** Gameplay UI talks to a `GameConnection` (`send(command)`, `subscribe(update)`, `close()`), so localhost Colyseus, the official service, tests and any future Bluetooth adapter are interchangeable.
 - **Mobile-ready UI.** Touch-sized targets, responsive layouts, nothing important behind hover, input abstracted to game actions (`CONFIRM`, `CANCEL`, `END_TURN`).
 - **Capabilities, not `if desktop`.** Storage, mods, local hosting and filesystem sit behind capability interfaces.

@@ -29,6 +29,6 @@ New packages need approval (Phaser 4, Colyseus, Tauri and the rest of the stack 
 
 ## Blocked
 
-- [ ] `SA-0005` needs the commands and battle rules from `shiba-core` (`SC-0004` to `SC-0006`).
+- [ ] `SA-0005` needs the game's rules (a policy, not yet written).
 
 ## Done (recent)
