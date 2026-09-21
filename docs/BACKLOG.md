@@ -1,8 +1,8 @@
 # BACKLOG.md (shiba-app)
 
-Story prefix: `SA-`. Epic definitions live in the `shiba-shared` repo's `BACKLOG.md`. Tag stories with `[SS-NN]`.
+Story prefix: `SA-`. Epic definitions live in the `shiba-shared` repo's `docs/BACKLOG.md`. Tag stories with `[SS-NN]`.
 
-Convention: `shiba-shared/docs/engineering/backlog-and-ids.md`. Keep "Now" to 3 items or fewer. Scope: [docs/scope.md](docs/scope.md).
+Convention: `shiba-shared/docs/engineering/backlog-and-ids.md`. Keep "Now" to 3 items or fewer. Scope: [scope.md](scope.md).
 
 New packages need approval (Phaser 4, Colyseus, Tauri and the rest of the stack are pre-decided, but confirm each at scaffold time).
 

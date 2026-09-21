@@ -6,6 +6,7 @@ Status: Draft.
 
 | Doc | Status |
 |---|---|
+| [BACKLOG.md](BACKLOG.md): work queue | Current |
 | [scope.md](scope.md): what lives here, structure, rules, open questions | Draft |
 
 Cross-repo docs: `docs/INDEX.md` in the `shiba-shared` repo. Start with its glossary and architecture overview.
