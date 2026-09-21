@@ -12,10 +12,14 @@ Status: Draft. Decisions are tracked in `shiba-shared/docs/decisions/log.md` (D-
 
 ## What does not live here
 
-- Rules logic. It comes from `shiba-core` as a versioned package. This repo never re-implements a rule.
+- Rules logic. Rules come from a policy in the pack the app loads; the runtime that runs it comes from `shiba-core` as a versioned package. This repo never re-implements a rule.
 - Official ladder, accounts, matchmaking, seasons, entitlements: `shiba-mps`.
 - Store, Steam/GOG adapters and premium content: a private commercial pack.
 - Mobile builds and Bluetooth. Later, and mobile is online-only.
+
+## Pack folders
+
+The app ships with empty `policies/`, `templates/` and `assets/` folders and accepts a configurable pack directory, so a game's data can live in a separate repo (D-34). Load flow: verify the policy signature (or warn if unsigned in local mode), load the policy into the runtime, read its contract, validate the templates, run. Format: `shiba-core/docs/pack-format.md`.
 
 ## Structure
 
@@ -31,11 +35,11 @@ Exact layout is open until the scaffold exists.
 
 ## Rules for this repo
 
-- **Server is authoritative.** The client sends intents (`ATTACK_LAND`, `PLAY_SPELL`) and renders results. The client may use `shiba-core` for previews (legal-move highlighting, tooltips) but never for authority.
+- **Server is authoritative.** The client sends intents (`ATTACK_LAND`, `PLAY_SPELL`) and renders results. The client may run the loaded policy through the `shiba-core` runtime for previews (legal-move highlighting, tooltips) but never for authority.
 - **Transport boundary.** Gameplay UI talks to a `GameConnection` (`send(command)`, `subscribe(update)`, `close()`), so localhost Colyseus, the official service, tests and any future Bluetooth adapter are interchangeable.
 - **Mobile-ready UI.** Touch-sized targets, responsive layouts, nothing important behind hover, input abstracted to game actions (`CONFIRM`, `CANCEL`, `END_TURN`).
 - **Capabilities, not `if desktop`.** Storage, mods, local hosting and filesystem sit behind capability interfaces.
-- **Flags** never hold rules. Rule values live in versioned rulesets.
+- **Flags** never hold rules. Rule values live in the policy and its templates.
 - **Mods:** executable mods are allowed on desktop local mode only.
 - **Custom games stay local.** Their rules are never sent to `shiba-mps`. The host's Colyseus server is authoritative for friends who join it. Shareable world files may come later (D-31).
 
@@ -44,4 +48,4 @@ Exact layout is open until the scaffold exists.
 - React alone, or canvas-native UI (PhaserJSX)? Prototype a throwaway screen first (O-05).
 - Does the Shandalar-style overworld survive next to the four-lands game (O-11)?
 - Server pause behavior in co-op: default no-pause, configurable.
-- Whether base rulesets live in this repo so forks merge them.
+- Whether base game data (a policy and templates) lives in this repo so forks can merge it.

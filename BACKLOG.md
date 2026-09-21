@@ -17,6 +17,7 @@ New packages need approval (Phaser 4, Colyseus, Tauri and the rest of the stack 
 
 ## Later / Ideas
 
+- [ ] `SA-0013` [SS-01] Pack loader: empty `policies/`, `templates/`, `assets/`; configurable pack dir; verify, load, validate. Works with the toy pack.
 - [ ] `SA-0005` [SS-02] Vertical slice UI: four lands per side, attack a land, battle screen with two creatures and a Spellbook hand.
 - [ ] `SA-0006` Tauri 2 shell that launches the Node sidecar (desktop only).
 - [ ] `SA-0007` Input action layer: game actions, last-used device, glyph swapping.

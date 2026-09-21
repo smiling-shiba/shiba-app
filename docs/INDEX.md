@@ -8,6 +8,6 @@ Status: Draft.
 |---|---|
 | [scope.md](scope.md): what lives here, structure, rules, open questions | Draft |
 
-Cross-repo docs: `/Users/kevin/repo/shiba-shared/docs/INDEX.md`. Start with its glossary and architecture overview.
+Cross-repo docs: `docs/INDEX.md` in the `shiba-shared` repo. Start with its glossary and architecture overview.
 
-`dev/` folders, where they exist, are the owner's private scratch pads. Agents do not write there unless asked.
+`dev/` folders, where they exist, are local, gitignored scratch space and not part of the project docs.
