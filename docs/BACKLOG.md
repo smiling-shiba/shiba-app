@@ -31,6 +31,6 @@ _Nothing in progress. Waiting on the pack loader design and the runner question 
 
 ## Blocked
 
-- [ ] `SA-0005` needs the game's rules (a policy, not yet written).
+- `SA-0005` (above) is blocked: it needs the game's rules, which are a policy that has not been written yet.
 
 ## Done (recent)
