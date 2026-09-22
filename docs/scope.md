@@ -26,12 +26,12 @@ The app ships with empty `policies/`, `templates/` and `assets/` folders and acc
 One repo, one `package.json`, two build targets (client and server). Not a package workspace. The Colyseus Vite plugin can build the static client and a standalone server bundle from one project.
 
 ```text
-src/client/   # React + Phaser
-src/server/   # Colyseus local server
-src-tauri/    # Tauri shell (Rust)
+src/client/   # React + Phaser. Vite's root (vite.config.ts); build output goes to dist/client/.
+src/server/   # Colyseus local server (SA-0003, not built yet)
+src-tauri/    # Tauri shell (Rust) (SA-0006, not built yet)
 ```
 
-Exact layout is open until the scaffold exists.
+Layout is pinned now that the scaffold exists (`SA-0001`). Config (`package.json`, `tsconfig*.json`, `vite.config.ts`, `vitest.config.ts`, `.oxlintrc.json`) stays at the repo root; `tests/` alongside it, matching `shiba-tools`.
 
 ## Rules for this repo
 
