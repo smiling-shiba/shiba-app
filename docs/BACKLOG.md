@@ -16,10 +16,10 @@ _Nothing in progress. Waiting on the pack loader design. The runner lives in thi
 - [ ] `SA-0002` [SS-02] Add Phaser 4 and a placeholder board scene.
 - [ ] `SA-0003` [SS-02] Colyseus local server running in dev alongside Vite.
 - [ ] `SA-0004` [SS-02] `GameConnection` transport boundary with a Colyseus implementation and a test implementation.
+- [ ] `SA-0013` [SS-01] Pack loader: empty `policies/`, `templates/`, `assets/`; configurable pack dir; verify, load, validate. Prove it end to end with a new, genuinely trivial toy policy ("Click Here": one button, one counter, no game content) instead of waiting on real rules — sidesteps the block on `SA-0005`. Include a spam-click stress test: does the client -> Colyseus -> policy -> back round trip hold up under rapid clicks, and how does it fail if it doesn't? Toy policy lives alongside `shiba-sdk`'s other toy fixtures.
 
 ## Later / Ideas
 
-- [ ] `SA-0013` [SS-01] Pack loader: empty `policies/`, `templates/`, `assets/`; configurable pack dir; verify, load, validate. Works with the toy pack.
 - [ ] `SA-0005` [SS-02] Vertical slice UI: four lands per side, attack a land, battle screen with two creatures and a Spellbook hand.
 - [ ] `SA-0006` Tauri 2 shell that launches the Node sidecar (desktop only).
 - [ ] `SA-0007` Input action layer: game actions, last-used device, glyph swapping.
