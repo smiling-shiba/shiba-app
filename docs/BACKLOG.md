@@ -8,11 +8,10 @@ New packages need approval (Phaser 4, Colyseus, Tauri and the rest of the stack 
 
 ## Now
 
-_Nothing in progress. Waiting on the pack loader design. The runner lives in this repo and is not shared with the ladder server (D-42, decided 2026-09-21)._
+_Nothing in progress._
 
 ## Next
 
-- [ ] `SA-0001` [SS-02] Scaffold the repo: Vite + React + TypeScript, Node 24, npm, Oxlint, Vitest. Match `shiba-tools`' setup.
 - [ ] `SA-0002` [SS-02] Add Phaser 4 and a placeholder board scene.
 - [ ] `SA-0003` [SS-02] Colyseus local server running in dev alongside Vite.
 - [ ] `SA-0004` [SS-02] `GameConnection` transport boundary with a Colyseus implementation and a test implementation.
@@ -36,3 +35,5 @@ _Nothing in progress. Waiting on the pack loader design. The runner lives in thi
 - `SA-0005` (above) is blocked: it needs the game's rules, which are a policy that has not been written yet.
 
 ## Done (recent)
+
+- [x] `SA-0001` [SS-02] Scaffold the repo: Vite + React + TypeScript, Node 24, npm, Oxlint, Vitest, matching `shiba-tools`. Client lives in `src/client/` (Vite's `root`), building to `dist/client/`; config stays at the repo root, `tests/` alongside it, ready for `src/server/` (`SA-0003`) to sit next to it. `App.tsx` is a bare placeholder — the Vite/React starter template's marketing content was stripped out. One smoke test (module loads and exports a component) without a DOM testing library — that's a new-package call for once there is a real component to render (`SA-0002`+). Verified for real: `npm run dev` actually renders "Smiling Shiba" in a browser with a clean console, not just that the build succeeds.
