@@ -16,6 +16,7 @@ _Nothing in progress. Waiting on the pack loader design. The runner lives in thi
 - [ ] `SA-0002` [SS-02] Add Phaser 4 and a placeholder board scene.
 - [ ] `SA-0003` [SS-02] Colyseus local server running in dev alongside Vite.
 - [ ] `SA-0004` [SS-02] `GameConnection` transport boundary with a Colyseus implementation and a test implementation.
+- [ ] `SA-0014` [SS-02] A pause/resume boundary between React and Phaser: something owns "is a menu open" and tells the Phaser scene to stop ticking and stop taking input while it is (`scene.pause()`/`resume()`), so a menu overlay doesn't fight the board underneath for CPU or focus. Same shape of problem as `SA-0004`, a clean seam instead of either side reaching into the other.
 - [ ] `SA-0013` [SS-01] Pack loader: empty `policies/`, `templates/`, `assets/`; configurable pack dir; verify, load, validate. Prove it end to end with a new, genuinely trivial toy policy ("Click Here": one button, one counter, no game content) instead of waiting on real rules — sidesteps the block on `SA-0005`. Include a spam-click stress test: does the client -> Colyseus -> policy -> back round trip hold up under rapid clicks, and how does it fail if it doesn't? Toy policy lives alongside `shiba-sdk`'s other toy fixtures.
 
 ## Later / Ideas
@@ -28,6 +29,7 @@ _Nothing in progress. Waiting on the pack loader design. The runner lives in thi
 - [ ] `SA-0010` Throwaway UI prototype to decide React vs canvas-native UI (O-05).
 - [ ] `SA-0011` Fan/carousel hand UI.
 - [ ] `SA-0012` Bluetooth or Wi-Fi nearby play (behind the transport boundary).
+- [ ] `SA-0015` Investigate a customizable UI — not full UI modding (nixed for now: real UI logic reopens the code-execution trust question D-45 avoided for rules). Something lighter: a couple of bundled themes, a template where a player supplies their own colors (hex codes) and maybe font size, or documented instructions for dropping in a CSS override file. Mechanism undecided; revisit once a real UI exists to hang it on.
 
 ## Blocked
 
