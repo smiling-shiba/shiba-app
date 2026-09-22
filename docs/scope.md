@@ -4,8 +4,8 @@ Status: Draft. Decisions are tracked in `shiba-shared/docs/decisions/log.md` (D-
 
 ## What lives here
 
-- **Client:** Vite + React + TypeScript for menus, HUD, deck builder, collection and settings. Phaser 4 for the board and battle.
-- **Tauri 2 shell:** desktop packaging. Launches the local server as a sidecar.
+- **Client:** Vite + React + TypeScript for menus, HUD, collection and settings. Phaser 4 for the board and battle. (Deck builder is game content, not platform — see `SH-0016` in `shiba-shared`.)
+- **Tauri 2 shell:** desktop packaging. Launches the local server as a sidecar, and loads the built client (React + Phaser) directly into its webview. The sidecar is a WebSocket game-state server the client connects to over localhost — it never serves UI. This is why D-05 picked Vite over Next.js: no Node server needed just to serve the client.
 - **Local / custom world server:** Node 24 + Colyseus. Authoritative for local games. Solo play is "multiplayer with one person connected."
 - **Local persistence:** `server.yml` (readable config), `world.sqlite` (durable state), `logs.sqlite` (logs), `mods/`.
 - **Local flags:** OpenFeature with the in-memory provider, fed from `server.yml`. No Flipt server needed to play.
@@ -40,7 +40,7 @@ Exact layout is open until the scaffold exists.
 - **Mobile-ready UI.** Touch-sized targets, responsive layouts, nothing important behind hover, input abstracted to game actions (`CONFIRM`, `CANCEL`, `END_TURN`).
 - **Capabilities, not `if desktop`.** Storage, mods, local hosting and filesystem sit behind capability interfaces.
 - **Flags** never hold rules. Rule values live in the policy and its templates.
-- **Mods:** executable mods are allowed on desktop local mode only.
+- **Mods:** templates and assets only, never code, on any platform (D-45). A different ruleset is a different pack, not a mod.
 - **Ladder rules are not ours to run.** In ladder mode the official server (`shiba-mps`) plays by its own private rules, which may differ from the default policy the app ships (D-42). The app only renders what the server says. Preview rules in ladder mode are a display convenience, not the truth.
 - **Custom games stay local.** Their rules are never sent to `shiba-mps`. The host's Colyseus server is authoritative for friends who join it. Shareable world files may come later (D-31).
 
